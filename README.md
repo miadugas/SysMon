@@ -14,6 +14,10 @@ RealTime CPU monitor with notifications and system tray
 
 <hr>
 
+## Technology Used
+HTML, CSS, JavaScript, ElectronJS, HTML 5 Notifications API
+
+
 ## License
 
 MIT License

@@ -7,6 +7,8 @@ const os = osu.os
 
 let cpuOverload = 80
 
+
+
 // Run check every 2 seconds
 setInterval(() => {
 // CPU Usage
@@ -55,4 +57,9 @@ function secondsToDhms(seconds) {
     const m = Math.floor((seconds % 3600) / 60)
     const s = Math.floor(seconds % 60)
     return `${d}d, ${h}h, ${m}m, ${s}s`
+  }
+
+// Send notification to the user
+function notifyUser(options) {
+    new Notification(options.title, options)
   }
