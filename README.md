@@ -2,7 +2,7 @@
 <hr>
 
 ## Description
-RealTime CPU monitor with notifications and system tray. Also stroes a log file in local storage for history reference.
+RealTime CPU monitor with notifications and system tray. Also stroes a log file in local storage as a .json file for history reference.
 <hr>
 
 ## Usage
