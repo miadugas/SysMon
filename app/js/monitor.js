@@ -1,13 +1,19 @@
 const path = require('path')
+const { ipcRenderer } = require('electron')
 const osu = require('node-os-utils')
 const cpu = osu.cpu
 const mem = osu.mem
 const os = osu.os
 
 
-let cpuOverload = 80
-let alertFrequency = 1
+let cpuOverload
+let alertFrequency
 
+// Get settings & values
+ipcRenderer.on('settings:get', (e, settings) => {
+  cpuOverload = +settings.cpuOverload
+  alertFrequency = +settings.alertFrequency
+})
 
 // Run check every 2 seconds
 setInterval(() => {
@@ -23,7 +29,6 @@ setInterval(() => {
        } else {
          document.getElementById('cpu-progress').style.background = '#30c88b'
        }      
-    })
 
 // Check overload
     if (info >= cpuOverload && runNotify(alertFrequency)) {
@@ -42,7 +47,7 @@ setInterval(() => {
     document.getElementById('cpu-free').innerText = info + '%'
   })
 
-  //   Uptime
+//   Uptime
   document.getElementById('sys-uptime').innerText = secondsToDhms(os.uptime())
 }, 2000)
 
@@ -75,7 +80,7 @@ function notifyUser(options) {
     new Notification(options.title, options)
   }
 
-  // Check how much time has passed since notification fired last
+// Check how much time has passed since notification fired last
 function runNotify(frequency) {
     if (localStorage.getItem('lastNotify') === null) {
     // Store timestamp
