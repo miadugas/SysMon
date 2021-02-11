@@ -1,10 +1,8 @@
 # SysMon
-
 <hr>
 
 ## Description
 RealTime CPU monitor with notifications and system tray
-
 <hr>
 
 ## Usage
