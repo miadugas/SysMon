@@ -4,20 +4,25 @@ const cpu = osu.cpu
 const mem = osu.mem
 const os = osu.os
 
-// Run check every 3 seconds
+
+let cpuOverload = 80
+
+// Run check every 2 seconds
 setInterval(() => {
 // CPU Usage
-     cpu.usage().then((info) => {
-       document.getElementById('cpu-usage').innerText = info + '%'
+    cpu.usage().then((info) => {
+    document.getElementById('cpu-usage').innerText = info + '%'
   
-    //   document.getElementById('cpu-progress').style.width = info + '%'
+    document.getElementById('cpu-progress').style.width = info + '%'
   
-      // Make progress bar red if overload
-    //   if (info >= cpuOverload) {
-    //     document.getElementById('cpu-progress').style.background = 'red'
-    //   } else {
-    //     document.getElementById('cpu-progress').style.background = '#30c88b'
-       })
+// Make progress bar red if overload
+       if (info >= cpuOverload) {
+        document.getElementById('cpu-progress').style.background = 'red'
+       } else {
+         document.getElementById('cpu-progress').style.background = '#30c88b'
+       }
+       
+    })
 
 //   CPU Free
   cpu.free().then((info) => {
@@ -26,7 +31,7 @@ setInterval(() => {
 
 //   Uptime
   document.getElementById('sys-uptime').innerText = secondsToDhms(os.uptime())
-}, 3000)
+}, 2000)
 
 // Set CPU model
 document.getElementById('cpu-model').innerText = cpu.model()
