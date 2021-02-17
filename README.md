@@ -1,9 +1,8 @@
 # SysMon
-<hr>
 
 ## Description
 RealTime CPU monitor with notifications and system tray. Also stroes a log file in local storage as a .json file for history reference.
-<hr>
+
 
 ## Usage
 
@@ -16,6 +15,12 @@ RealTime CPU monitor with notifications and system tray. Also stroes a log file 
 
 ## Technology Used
 HTML, CSS, JavaScript, ElectronJS, HTML 5 Notifications API
+
+### Additional Technology Used
+
+
+### Final App download for Mac:
+[Download]()
 
 
 ## License
